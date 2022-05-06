@@ -1,0 +1,70 @@
+name: AntiNetherRoof
+version: '1.0'
+api-version: '1.17'
+description: Prevent players going to the nether roof
+author: Griphion
+main: me.griphion.AntiNetherRoof.Core
+softdepend: [Multiverse-Core]
+commands:
+  antinetherroof:
+    description: Base command of AntiNetherRoof
+    aliases: anr
+    usage: Uso /<command>
+
+permissions:
+  antinetherroof.*:
+    description: Gives all plugin permissions
+    children:
+      antinetherroof.command.*: true
+      antinetherroof.bypass.*: true
+  antinetherroof.command.*:
+    description: Gives all command permissions
+    children:
+      antinetherroof.command.help: true
+      antinetherroof.command.info: true
+      antinetherroof.command.punishment: true
+      antinetherroof.command.reload: true
+      antinetherroof.command.setpunishment: true
+      antinetherroof.command.toggle: true
+      antinetherroof.command.worlds: true
+  antinetherroof.bypass.*:
+    description: Gives all command permissions
+    children:
+      antinetherroof.bypass.build.*: true
+      antinetherroof.bypass.punishment.*: true
+      antinetherroof.bypass.placeentity.*: true
+      antinetherroof.bypass.useitem.*: true
+
+  antinetherroof.command.help:
+    description: Gives permission to use /antinetherroof help
+    default: op
+  antinetherroof.command.info:
+    description: Gives permission to use /antinetherroof info [World]
+    default: op
+  antinetherroof.command.punishment:
+    description: Gives permission to use /antinetherroof punishment [Punishment]
+    default: op
+  antinetherroof.command.reload:
+    description: Gives permission to use /antinetherroof reload
+    default: op
+  antinetherroof.command.setpunishment:
+    description: Gives permission to use /antinetherroof setpunishment [World] <Punishment> [Param]
+    default: op
+  antinetherroof.command.toggle:
+    description: Gives permission to use /antinetherroof toggle [World]
+    default: op
+  antinetherroof.command.worlds:
+    description: Gives permission to use /antinetherroof worlds
+    default: op
+  antinetherroof.bypass.build.*:
+    description: Gives permission to build in all nether roofs (Replace * with world name for per-world permission)
+    default: op
+  antinetherroof.bypass.punishment.*:
+    description: Gives permission to enter all nether roofs without being punished (Replace * with world name for per-world permission)
+    default: op
+  antinetherroof.bypass.placeentity.*:
+    description: Gives permission to place entitys in all nether roofs (Replace * with world name for per-world permission)
+    default: op
+  antinetherroof.bypass.useitem.*:
+    description: Gives permission to use items in all nether roofs (Replace * with world name for per-world permission)
+    default: op
