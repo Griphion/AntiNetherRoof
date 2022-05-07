@@ -9,12 +9,12 @@ import org.bukkit.command.CommandSender;
 
 public class Worlds_cmd extends ANRSubCommand {
   public Worlds_cmd() {
-    super("worlds", "Muestra los mundos disponibles.");
+    super("worlds", "Muestra los mundos disponibles.", "antinetherroof.command.worlds");
   }
 
   @Override
   public boolean execute(CommandSender sender, String[] args) {
-    if(ANRMessages.noPermission("antinetherroof.command.worlds", sender)){
+    if(ANRMessages.noPermission(getPermission(), sender)){
       return true;
     }
     sender.sendMessage(ANRMessages.SEPARATOR.getMessage());

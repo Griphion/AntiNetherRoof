@@ -10,12 +10,12 @@ import org.bukkit.command.CommandSender;
 
 public class Reload_cmd extends ANRSubCommand {
   public Reload_cmd() {
-    super("reload", "Recarga el archivo config y agrega todos los mundos (En caso de que falte alguno).");
+    super("reload", "Recarga el archivo config y agrega todos los mundos (En caso de que falte alguno).", "antinetherroof.command.reload");
   }
 
   @Override
   public boolean execute(CommandSender sender, String[] args) {
-    if(ANRMessages.noPermission("antinetherroof.command.reload", sender)){
+    if(ANRMessages.noPermission(getPermission(), sender)){
       return true;
     }
     WorldRepo.getInstance().scanWorlds(true);

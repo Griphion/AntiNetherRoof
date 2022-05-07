@@ -53,12 +53,16 @@ public class PunishmentManager {
     }
 
     public boolean isAPunishment(final String punishmentName, final CommandSender sender){
-        if(availablePunishments.contains(punishmentName)){
+        if(isAPunishment(punishmentName)){
             return true;
-        }else{
+        } else {
             sender.sendMessage(ChatColor.RED + "El castigo '"+ ChatColor.YELLOW + punishmentName + ChatColor.RED + "' no existe");
             return false;
         }
+    }
+
+    public boolean isAPunishment(final String punishmentName){
+        return availablePunishments.contains(punishmentName);
     }
 
     public void punish(final Player player, final World world){
@@ -69,7 +73,7 @@ public class PunishmentManager {
         final Punishment punishment = worldPunishment.get(world);
         if(punishment == null){
             sender.sendMessage(ChatColor.DARK_RED + "Castigo: INVÁLIDO! (Vea el config.yml y verifique que sea un castigo válido)");
-        }else {
+        } else {
             punishment.info(world,sender);
         }
     }

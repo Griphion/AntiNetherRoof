@@ -41,7 +41,7 @@ public class Core extends JavaPlugin {
         // ---------------
 
         Objects.requireNonNull(getCommand("antinetherroof")).setExecutor(ANRCommand.instance());
-        Objects.requireNonNull(getCommand("antinetherroof")).setTabCompleter(new TabBase());
+        Objects.requireNonNull(getCommand("antinetherroof")).setTabCompleter(ANRCommand.instance());
 
         Bukkit.getConsoleSender().sendMessage(ANRMessages.PLUGIN_ENABLED.getMessageWithLongPrefix());
     }

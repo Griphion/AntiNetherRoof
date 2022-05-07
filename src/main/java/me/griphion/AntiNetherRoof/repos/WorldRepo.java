@@ -51,4 +51,8 @@ public class WorldRepo {
   public Set<String> getAllWorlds() {
     return allWorlds;
   }
+
+  public boolean isANetherWorldName(String worldName){
+    return netherWorlds.contains(worldName);
+  }
 }
