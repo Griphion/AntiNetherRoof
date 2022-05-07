@@ -1,6 +1,7 @@
 package me.griphion.AntiNetherRoof.listeners;
 
 import me.griphion.AntiNetherRoof.ANRMessages;
+import me.griphion.AntiNetherRoof.repos.WorldRepo;
 import me.griphion.AntiNetherRoof.utils.ConfigUtils;
 import org.bukkit.Material;
 import org.bukkit.Tag;
@@ -27,7 +28,7 @@ public class PlayerPlaceEntity_Listener implements Listener {
         item = event.getPlayer().getInventory().getItemInOffHand();
       }
 
-      if (event.getClickedBlock().getRelative(event.getBlockFace()).getLocation().getY() > 126
+      if (WorldRepo.isInNetherRoof(event.getClickedBlock().getRelative(event.getBlockFace()).getLocation())
           && (event.getAction() == Action.RIGHT_CLICK_BLOCK))
 
         if (isOther(item.getType())

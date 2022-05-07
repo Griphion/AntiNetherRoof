@@ -2,7 +2,7 @@ package me.griphion.AntiNetherRoof;
 
 import me.griphion.AntiNetherRoof.commands.ANRCommand;
 import me.griphion.AntiNetherRoof.punishments.PunishmentManager;
-import me.griphion.AntiNetherRoof.utils.WorldRepo;
+import me.griphion.AntiNetherRoof.repos.WorldRepo;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.command.Command;
@@ -16,7 +16,7 @@ import java.util.Set;
 
 public class TabBase implements TabCompleter {
 
-    private final Set<String> argumentosBase = ANRCommand.instance().getSubCommandsNames();
+    private final Set<String> subCommands = ANRCommand.instance().getSubCommandsNames();
     @Override
     public List<String> onTabComplete(final CommandSender sender, final Command cmd, final String label, final String[] args) {
 
@@ -24,7 +24,7 @@ public class TabBase implements TabCompleter {
         double x,y,z;
 
         if(args.length == 1){
-            for(String a : argumentosBase){
+            for(String a : subCommands){
                 if(a.toLowerCase().startsWith(args[0].toLowerCase()))
                     result.add(a);
             }

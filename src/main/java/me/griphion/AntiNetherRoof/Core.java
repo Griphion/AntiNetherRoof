@@ -6,7 +6,7 @@ import me.griphion.AntiNetherRoof.listeners.PlayerMove_Listener;
 import me.griphion.AntiNetherRoof.listeners.PlayerPlaceEntity_Listener;
 import me.griphion.AntiNetherRoof.listeners.PlayerUseItem_Listener;
 import me.griphion.AntiNetherRoof.punishments.PunishmentManager;
-import me.griphion.AntiNetherRoof.utils.WorldRepo;
+import me.griphion.AntiNetherRoof.repos.WorldRepo;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -27,9 +27,10 @@ public class Core extends JavaPlugin {
         WorldRepo.getInstance().scanWorlds(false);
         PunishmentManager.getInstance().loadPunishments();
 
-        // Save config files
+        // Save and load config files
         getConfig().options().copyDefaults(true);
         saveConfig();
+        reloadConfig();
         // ---------------
 
         // Listeners

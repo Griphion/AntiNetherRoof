@@ -9,8 +9,6 @@ import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.Objects;
-
 public class TP_Punishment extends Punishment {
 
   Location tpLocation = null;

@@ -1,7 +1,7 @@
 package me.griphion.AntiNetherRoof.punishments.punishment;
 
 import me.griphion.AntiNetherRoof.Core;
-import me.griphion.AntiNetherRoof.utils.WorldRepo;
+import me.griphion.AntiNetherRoof.repos.WorldRepo;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;

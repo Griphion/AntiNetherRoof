@@ -9,6 +9,10 @@ public class ConfigUtils {
     return Core.instance().getConfig().getString(worldName + ".punishment","deny");
   }
 
+  public static double getWorldActivationHeight(String worldName){
+    return Core.instance().getConfig().getDouble(worldName + ".activationHeight",127.0);
+  }
+
   public static boolean isWorldEnabled(String worldName){
     return Core.instance().getConfig().getBoolean(worldName + ".enabled", false);
   }
@@ -20,6 +24,11 @@ public class ConfigUtils {
 
   public static void setWorldPunishment(String worldName, String punishmentName){
     Core.instance().getConfig().set(worldName + ".punishment", punishmentName);
+    Core.instance().saveConfig();
+  }
+
+  public static void setWorldActivationHeight(String worldName, Double height){
+    Core.instance().getConfig().set(worldName + ".activationHeight", height);
     Core.instance().saveConfig();
   }
 
@@ -45,6 +54,14 @@ public class ConfigUtils {
       setWorldPunishment(worldName,"deny");
     } else {
       Core.instance().getConfig().addDefault(worldName + ".punishment", "deny");
+    }
+  }
+
+  public static void setDefaultWorldActivationHeight(String worldName, boolean isHotSet) {
+    if(isHotSet){
+      setWorldActivationHeight(worldName,127.0);
+    } else {
+      Core.instance().getConfig().addDefault(worldName + ".activationHeight", 127.0);
     }
   }
 

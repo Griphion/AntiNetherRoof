@@ -1,6 +1,7 @@
-package me.griphion.AntiNetherRoof.utils;
+package me.griphion.AntiNetherRoof.repos;
 
 import me.griphion.AntiNetherRoof.Core;
+import me.griphion.AntiNetherRoof.utils.ConfigUtils;
 import org.bukkit.Location;
 import org.bukkit.World;
 
@@ -19,7 +20,10 @@ public class WorldRepo {
 
   public static boolean isInNetherRoof(Location location){
     if(location == null) return false;
-    return (location.getY() >= 127 && isNether(location.getWorld()));
+    World world = location.getWorld();
+    if(world == null) return false;
+    double worldActivationHeight = ConfigUtils.getWorldActivationHeight(world.getName());
+    return (location.getY() >= worldActivationHeight && isNether(location.getWorld()));
   }
 
   // HotScan -> Se ejecuta mientras el plugin ya esta cargado (Reload)
@@ -29,6 +33,7 @@ public class WorldRepo {
           if (isNether(world) && !netherWorlds.contains(world.getName())) {
               ConfigUtils.setDefaultWorldPunishment(world.getName(),hotScan);
               ConfigUtils.setDefaultWorldToggle(world.getName(),hotScan);
+              ConfigUtils.setDefaultWorldActivationHeight(world.getName(),hotScan);
               netherWorlds.add(world.getName());
           }
       }

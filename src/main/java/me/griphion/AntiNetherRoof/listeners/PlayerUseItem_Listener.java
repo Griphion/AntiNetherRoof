@@ -1,8 +1,8 @@
 package me.griphion.AntiNetherRoof.listeners;
 
 import me.griphion.AntiNetherRoof.ANRMessages;
+import me.griphion.AntiNetherRoof.repos.WorldRepo;
 import me.griphion.AntiNetherRoof.utils.ConfigUtils;
-import me.griphion.AntiNetherRoof.utils.WorldRepo;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -31,7 +31,7 @@ public class PlayerUseItem_Listener implements Listener {
           (event.getAction() == Action.RIGHT_CLICK_AIR
               && WorldRepo.isInNetherRoof(event.getPlayer().getLocation()) )
           || (event.getClickedBlock() != null
-              && event.getClickedBlock().getRelative(event.getBlockFace()).getLocation().getY() > 126
+              && WorldRepo.isInNetherRoof(event.getClickedBlock().getRelative(event.getBlockFace()).getLocation())
               && event.getAction() == Action.RIGHT_CLICK_BLOCK)) {
         if (isOther(item.getType())
             || isTool(item.getType())

@@ -1,7 +1,6 @@
 package me.griphion.AntiNetherRoof.punishments.punishment;
 
 import me.griphion.AntiNetherRoof.ANRMessages;
-import me.griphion.AntiNetherRoof.Core;
 import me.griphion.AntiNetherRoof.utils.ConfigUtils;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.World;
@@ -10,8 +9,8 @@ import org.bukkit.entity.Player;
 
 /*
 * Aquí se crean todos los castigos, cuando se cree uno nuevo hay que:
-* - Agregarlo a la lista del "Punisher"
-* - Agregarlo al SWITCH del "Punisher"
+* - Agregarlo a la lista del "PunishmentManager"
+* - Agregarlo al SWITCH del "PunishmentManager"
 * - Agregarlo aquí como una nueva clase que extienda a Castigos y que implemente todos los métodos necesarios
 * */
 
@@ -39,7 +38,9 @@ public abstract class Punishment {
     /* Configura el castigo en el mundo */
     public boolean setUp(final World world, final CommandSender sender, final String[] args){
         ConfigUtils.setWorldPunishment(world.getName(),this.name);
-        sender.sendMessage(ANRMessages.PLUGIN_PREFIX_SHORT.getMessage() + ChatColor.GREEN + "Castigo cambiado con éxito! " + ChatColor.GRAY + "(Mundo: " + ChatColor.GOLD + world.getName() + ChatColor.GRAY + ") Nuevo castigo: " + this.name);
+        sender.sendMessage(ANRMessages.PLUGIN_PREFIX_SHORT.getMessage() + ChatColor.GREEN
+                + "Castigo cambiado con éxito! " + ChatColor.GRAY
+                + "(Mundo: " + ChatColor.GOLD + world.getName() + ChatColor.GRAY + ") Nuevo castigo: " + this.name);
         return true;
     }
 

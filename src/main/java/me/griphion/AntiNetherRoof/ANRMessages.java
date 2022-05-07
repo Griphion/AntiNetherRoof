@@ -1,6 +1,6 @@
 package me.griphion.AntiNetherRoof;
 
-import me.griphion.AntiNetherRoof.utils.WorldRepo;
+import me.griphion.AntiNetherRoof.repos.WorldRepo;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.World;
 import org.bukkit.command.CommandSender;
@@ -29,8 +29,8 @@ public enum ANRMessages {
     this.message = ChatColor.translateAlternateColorCodes('&',message);
   }
 
-  public static boolean noPermission(final String permiso, final CommandSender sender){
-      if(!sender.hasPermission(permiso)){
+  public static boolean noPermission(final String permission, final CommandSender sender){
+      if(!sender.hasPermission(permission)){
           sender.sendMessage(NO_PERMISSION_COMMAND.message);
           return true;
       }

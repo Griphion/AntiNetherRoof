@@ -2,8 +2,8 @@ package me.griphion.AntiNetherRoof.punishments;
 
 import me.griphion.AntiNetherRoof.Core;
 import me.griphion.AntiNetherRoof.punishments.punishment.*;
+import me.griphion.AntiNetherRoof.repos.WorldRepo;
 import me.griphion.AntiNetherRoof.utils.ConfigUtils;
-import me.griphion.AntiNetherRoof.utils.WorldRepo;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.World;
 import org.bukkit.command.CommandSender;
