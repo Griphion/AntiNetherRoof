@@ -6,6 +6,7 @@ import me.griphion.AntiNetherRoof.commands.ANRSubCommand;
 import me.griphion.AntiNetherRoof.punishments.PunishmentManager;
 import me.griphion.AntiNetherRoof.punishments.punishment.Punishment;
 import me.griphion.AntiNetherRoof.repos.WorldRepo;
+import me.griphion.AntiNetherRoof.utils.TabCompleteUtils;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -72,40 +73,28 @@ public class SetPunishment_cmd extends ANRSubCommand {
 
     if(commandSender instanceof Player) { //Si es un player
       if(args.length == 2){
-        getTabPunishments(args,result,1);
+        TabCompleteUtils.addTabPunishmentsToResult(args,result,1);
       } else if (args.length == 3 && WorldRepo.getInstance().isANetherWorldName(args[1])) {
-        getTabPunishments(args,result,2);
+        TabCompleteUtils.addTabPunishmentsToResult(args,result,2);
       } else { //Autocompletar parametros
         if (Objects.equals(args[1], "tp")) {
-          getTabTpParameters(commandSender,args,result,false);
+          addTabTpParametersToResult(commandSender,args,result,false);
         } else if (WorldRepo.getInstance().isANetherWorldName(args[1]) && Objects.equals(args[2], "tp")) {
-          getTabTpParameters(commandSender,args,result,true);
+          addTabTpParametersToResult(commandSender,args,result,true);
         }
       }
     } else { //Si es la consola le completa "<World> <Punishment> [Param]"
       if(args.length == 2){
-        getTabNetherWorld(args,result,1);
+        TabCompleteUtils.addTabNetherWorldsToResult(args,result,1);
       } else if (args.length == 3){
-        getTabPunishments(args,result,2);
+        TabCompleteUtils.addTabPunishmentsToResult(args,result,2);
       }
     }
 
     return result;
   }
 
-  private void getTabPunishments(String[] args, List<String> result, int arrayPosition){
-    PunishmentManager.getInstance().getAvailablePunishments().forEach(punish -> {
-      if (punish.toLowerCase().startsWith(args[arrayPosition].toLowerCase())) result.add(punish);
-    });
-  }
-
-  private void getTabNetherWorld(String[] args, List<String> result, int arrayPosition){
-    WorldRepo.getInstance().getNetherWorlds().forEach(world -> {
-      if (world.toLowerCase().startsWith(args[arrayPosition].toLowerCase())) result.add(world);
-    });
-  }
-
-  private void getTabTpParameters(CommandSender commandSender, String[] args, List<String> result, boolean hasWorld){
+  private void addTabTpParametersToResult(CommandSender commandSender, String[] args, List<String> result, boolean hasWorld){
     double x,y,z;
     int argsLength = hasWorld ? args.length - 1 : args.length;
     switch (argsLength){
