@@ -1,6 +1,6 @@
 package me.griphion.AntiNetherRoof.punishments.punishment;
 
-import me.griphion.AntiNetherRoof.utils.ConfigUtils;
+import me.griphion.AntiNetherRoof.configs.WorldsConfig;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -14,7 +14,7 @@ public class Kill_Punishment extends Punishment {
   @Override
   public void punish(final Player player, final World world) {
     Location loc = player.getLocation();
-    loc.setY(ConfigUtils.getWorldActivationHeight(world.getName()) - 2);
+    loc.setY(WorldsConfig.getInstance().getWorldActivationHeight(world.getName()) - 2);
     player.teleport(loc);
     player.setHealth(0);
   }

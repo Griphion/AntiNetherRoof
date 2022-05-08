@@ -14,9 +14,9 @@ import java.util.Objects;
 
 public class Core extends JavaPlugin {
     //Singleton
-    static private Core INSTANCE;
+    private static Core INSTANCE;
 
-    static public Core instance() {
+    public static Core getInstance() {
         return INSTANCE;
     }
 
@@ -26,12 +26,6 @@ public class Core extends JavaPlugin {
 
         WorldRepo.getInstance().scanWorlds(false);
         PunishmentManager.getInstance().loadPunishments();
-
-        // Save and load config files
-        getConfig().options().copyDefaults(true);
-        saveConfig();
-        reloadConfig();
-        // ---------------
 
         // Listeners
         getServer().getPluginManager().registerEvents(new PlayerMove_Listener(), INSTANCE);

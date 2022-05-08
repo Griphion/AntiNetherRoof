@@ -13,11 +13,10 @@ import java.util.*;
 public class ANRCommand implements CommandExecutor, TabCompleter {
 
   private final static ANRCommand INSTANCE = new ANRCommand();
+  private final TreeMap<String, ANRSubCommand> subCommands = new TreeMap<>();
   public static ANRCommand instance() {
     return INSTANCE;
   }
-
-  private final TreeMap<String, ANRSubCommand> subCommands = new TreeMap<>();
   private ANRCommand() {
     subCommands.put("help", new Help_cmd());
     subCommands.put("info", new Info_cmd());
@@ -27,6 +26,7 @@ public class ANRCommand implements CommandExecutor, TabCompleter {
     subCommands.put("toggle", new Toggle_cmd());
     subCommands.put("worlds", new Worlds_cmd());
   }
+
   @Override
   public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
     if(cmd.getName().equalsIgnoreCase("antinetherroof") || cmd.getName().equalsIgnoreCase("anr")) {
@@ -71,7 +71,7 @@ public class ANRCommand implements CommandExecutor, TabCompleter {
     return subCommands.keySet();
   }
 
-  private static boolean usoInvalido(CommandSender sender) {
+  private boolean usoInvalido(CommandSender sender) {
     sender.sendMessage(ChatColor.GRAY + "Ayuda: /antinetherroof help");
     return true;
   }

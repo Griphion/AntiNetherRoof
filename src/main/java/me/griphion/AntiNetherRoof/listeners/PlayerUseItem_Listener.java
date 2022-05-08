@@ -1,8 +1,8 @@
 package me.griphion.AntiNetherRoof.listeners;
 
 import me.griphion.AntiNetherRoof.ANRMessages;
+import me.griphion.AntiNetherRoof.configs.WorldsConfig;
 import me.griphion.AntiNetherRoof.repos.WorldRepo;
-import me.griphion.AntiNetherRoof.utils.ConfigUtils;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,7 +15,7 @@ public class PlayerUseItem_Listener implements Listener {
 
   @EventHandler(ignoreCancelled = true)
   public static void onItemUse(final PlayerInteractEvent event) {
-    if (ConfigUtils.isWorldEnabled(event.getPlayer().getWorld().getName())
+    if (WorldsConfig.getInstance().isWorldEnabled(event.getPlayer().getWorld().getName())
         && ( !event.getPlayer().hasPermission("antinetherroof.bypass.useitem." + event.getPlayer().getWorld().getName())
         || !event.getPlayer().hasPermission("antinetherroof.bypass.useitem.*") )) {
 
@@ -29,9 +29,9 @@ public class PlayerUseItem_Listener implements Listener {
 
       if (
           (event.getAction() == Action.RIGHT_CLICK_AIR
-              && WorldRepo.isInNetherRoof(event.getPlayer().getLocation()) )
+              && WorldRepo.getInstance().isInNetherRoof(event.getPlayer().getLocation()) )
           || (event.getClickedBlock() != null
-              && WorldRepo.isInNetherRoof(event.getClickedBlock().getRelative(event.getBlockFace()).getLocation())
+              && WorldRepo.getInstance().isInNetherRoof(event.getClickedBlock().getRelative(event.getBlockFace()).getLocation())
               && event.getAction() == Action.RIGHT_CLICK_BLOCK)) {
         if (isOther(item.getType())
             || isTool(item.getType())

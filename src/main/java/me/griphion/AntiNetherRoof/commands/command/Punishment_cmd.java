@@ -28,7 +28,7 @@ public class Punishment_cmd extends ANRSubCommand {
       if(PunishmentManager.getInstance().isAPunishment(args[0],sender)){
         sender.sendMessage(ANRMessages.SEPARATOR.getMessage());
         sender.sendMessage(ChatColor.DARK_AQUA + "- Castigo - ");
-        PunishmentManager.getPunishmentByName(args[0]).help(sender);
+        PunishmentManager.getInstance().getPunishmentByName(args[0]).help(sender);
       }else {
         return true;
       }

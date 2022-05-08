@@ -2,7 +2,7 @@ package me.griphion.AntiNetherRoof.punishments.punishment;
 
 import me.griphion.AntiNetherRoof.ANRMessages;
 import me.griphion.AntiNetherRoof.Core;
-import me.griphion.AntiNetherRoof.utils.ConfigUtils;
+import me.griphion.AntiNetherRoof.configs.WorldsConfig;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -16,7 +16,6 @@ public class TP_Punishment extends Punishment {
   public TP_Punishment() {
     super("tp", "Teletransporta al jugador al lugar designado.");
   }
-
 
   @Override
   public boolean setUp(final World world, final CommandSender sender, final String[] args) { //setpunishment mundo tp [x y z mundo]
@@ -46,8 +45,8 @@ public class TP_Punishment extends Punishment {
       return false;
     }
 
-    ConfigUtils.setWorldPunishment(world.getName(),name);
-    ConfigUtils.setWorldTPPunishment(world.getName(), x, y, z, args[3]);
+    WorldsConfig.getInstance().setWorldPunishment(world.getName(),name);
+    WorldsConfig.getInstance().setWorldTPPunishment(world.getName(), x, y, z, args[3]);
 
     sender.sendMessage(ANRMessages.PLUGIN_PREFIX_SHORT.getMessage()
         + ChatColor.GREEN + "Castigo cambiado con éxito! "
@@ -86,10 +85,10 @@ public class TP_Punishment extends Punishment {
   }
 
   private void setUpTPLocation(World world){
-    Location location = ConfigUtils.getWorldTPPunishmentLocation(world.getName());
+    Location location = WorldsConfig.getInstance().getWorldTPPunishmentLocation(world.getName());
     if(location == null || location.getWorld() == null){
       tpLocation = world.getSpawnLocation();
-      Core.instance().getLogger().warning(ANRMessages.PLUGIN_PREFIX.getMessage() + ChatColor.RED + "La coordenada configurada para el mundo " + world.getName() + " es inválida (No existe ese mundo)");
+      Core.getInstance().getLogger().warning(ANRMessages.PLUGIN_PREFIX.getMessage() + ChatColor.RED + "La coordenada configurada para el mundo " + world.getName() + " es inválida (No existe ese mundo)");
       return;
     }
     tpLocation = location;

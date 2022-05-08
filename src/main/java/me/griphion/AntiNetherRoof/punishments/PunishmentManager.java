@@ -1,9 +1,9 @@
 package me.griphion.AntiNetherRoof.punishments;
 
 import me.griphion.AntiNetherRoof.Core;
+import me.griphion.AntiNetherRoof.configs.WorldsConfig;
 import me.griphion.AntiNetherRoof.punishments.punishment.*;
 import me.griphion.AntiNetherRoof.repos.WorldRepo;
-import me.griphion.AntiNetherRoof.utils.ConfigUtils;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.World;
 import org.bukkit.command.CommandSender;
@@ -16,16 +16,14 @@ import java.util.List;
 public class PunishmentManager {
     //Singleton
     private static final PunishmentManager INSTANCE = new PunishmentManager();
+    private PunishmentManager(){}
     public static PunishmentManager getInstance(){
         return INSTANCE;
     }
-
     private final List<String> availablePunishments = Arrays.asList("deny","freeze","tp","spawn","kill");
     private final HashMap<World,Punishment> worldPunishment = new HashMap<>(10);
 
-    private PunishmentManager(){}
-
-    public static Punishment getPunishmentByName(final String punishmentName){
+    public Punishment getPunishmentByName(final String punishmentName){
         if(punishmentName == null) return new Deny_Punishment();
         switch(punishmentName){
             case "deny":
@@ -79,9 +77,9 @@ public class PunishmentManager {
     }
 
     public void loadPunishments(){
-        for (World world : Core.instance().getServer().getWorlds()) {
-            if(WorldRepo.isNether(world)) {
-                setPunishment(world, PunishmentManager.getPunishmentByName(ConfigUtils.getWorldPunishment(world.getName())));
+        for (World world : Core.getInstance().getServer().getWorlds()) {
+            if(WorldRepo.getInstance().isNether(world)) {
+                setPunishment(world, getPunishmentByName(WorldsConfig.getInstance().getWorldPunishment(world.getName())));
             }
         }
     }

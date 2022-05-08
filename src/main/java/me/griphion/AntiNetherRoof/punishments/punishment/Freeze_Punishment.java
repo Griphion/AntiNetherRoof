@@ -69,7 +69,7 @@ public class Freeze_Punishment extends Punishment {
         playersIterator = players.iterator();
         while (playersIterator.hasNext()) {
           Player player = playersIterator.next();
-          if(WorldRepo.isInNetherRoof(player.getLocation()) && !player.hasPermission("antinetherroof.bypass.punishment.freeze")){
+          if(WorldRepo.getInstance().isInNetherRoof(player.getLocation()) && !player.hasPermission("antinetherroof.bypass.punishment.freeze")){
             applyEffects(player);
           } else {
             removeEffects(player);
@@ -77,7 +77,7 @@ public class Freeze_Punishment extends Punishment {
           }
         }
       }
-    }.runTaskTimer(Core.instance(),0,20L);
+    }.runTaskTimer(Core.getInstance(),0,20L);
   }
 
 

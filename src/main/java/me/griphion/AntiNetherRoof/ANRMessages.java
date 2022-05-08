@@ -38,8 +38,8 @@ public enum ANRMessages {
 
   public static boolean notAValidWorld(final String name, final CommandSender sender){
     if(worldDoesNotExist(name, sender)) return true;
-    World world = Core.instance().getServer().getWorld(name);
-    if(WorldRepo.isNether(world)){
+    World world = Core.getInstance().getServer().getWorld(name);
+    if(WorldRepo.getInstance().isNether(world)){
       return false;
     }
     sender.sendMessage(PLUGIN_PREFIX_SHORT.message + org.bukkit.ChatColor.RED + "El mundo '"+ org.bukkit.ChatColor.GOLD + name + org.bukkit.ChatColor.RED + "' no es un mundo válido!");
@@ -47,7 +47,7 @@ public enum ANRMessages {
   }
 
   public static boolean worldDoesNotExist(final String name, final CommandSender sender){
-    if(name != null && Core.instance().getServer().getWorld(name) != null){
+    if(name != null && Core.getInstance().getServer().getWorld(name) != null){
       return false;
     }
     sender.sendMessage(PLUGIN_PREFIX_SHORT.message + org.bukkit.ChatColor.RED + "El mundo '"+ org.bukkit.ChatColor.GOLD + name + org.bukkit.ChatColor.RED + "' no existe!");

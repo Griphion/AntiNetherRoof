@@ -2,9 +2,9 @@ package me.griphion.AntiNetherRoof.listeners;
 
 import me.griphion.AntiNetherRoof.ANRMessages;
 import me.griphion.AntiNetherRoof.Core;
+import me.griphion.AntiNetherRoof.configs.WorldsConfig;
 import me.griphion.AntiNetherRoof.punishments.PunishmentManager;
 import me.griphion.AntiNetherRoof.repos.WorldRepo;
-import me.griphion.AntiNetherRoof.utils.ConfigUtils;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -29,7 +29,7 @@ public class PlayerMove_Listener implements Listener {
             if (!antiSpamList.contains(event.getPlayer())) {
                 event.getPlayer().sendMessage(ANRMessages.NO_PERMISSION_ENTER.getMessage());
                 antiSpamList.add(event.getPlayer());
-                Core.instance().getServer().getScheduler().runTaskLater(Core.instance(), () -> antiSpamList.remove(event.getPlayer()), 100L);
+                Core.getInstance().getServer().getScheduler().runTaskLater(Core.getInstance(), () -> antiSpamList.remove(event.getPlayer()), 100L);
             }
         }
     }
@@ -51,8 +51,8 @@ public class PlayerMove_Listener implements Listener {
 
         String worldName = world.getName();
 
-        return ConfigUtils.isWorldEnabled(worldName)
-                && WorldRepo.isInNetherRoof(loc)
+        return WorldsConfig.getInstance().isWorldEnabled(worldName)
+                && WorldRepo.getInstance().isInNetherRoof(loc)
                 && (!event.getPlayer().hasPermission("antinetherroof.bypass.punishment." + worldName)
                 || !event.getPlayer().hasPermission("antinetherroof.bypass.punishment.*"));
     }

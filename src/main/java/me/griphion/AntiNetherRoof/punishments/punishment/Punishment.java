@@ -1,7 +1,7 @@
 package me.griphion.AntiNetherRoof.punishments.punishment;
 
 import me.griphion.AntiNetherRoof.ANRMessages;
-import me.griphion.AntiNetherRoof.utils.ConfigUtils;
+import me.griphion.AntiNetherRoof.configs.WorldsConfig;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.World;
 import org.bukkit.command.CommandSender;
@@ -37,7 +37,7 @@ public abstract class Punishment {
 
     /* Configura el castigo en el mundo */
     public boolean setUp(final World world, final CommandSender sender, final String[] args){
-        ConfigUtils.setWorldPunishment(world.getName(),this.name);
+        WorldsConfig.getInstance().setWorldPunishment(world.getName(),this.name);
         sender.sendMessage(ANRMessages.PLUGIN_PREFIX_SHORT.getMessage() + ChatColor.GREEN
                 + "Castigo cambiado con éxito! " + ChatColor.GRAY
                 + "(Mundo: " + ChatColor.GOLD + world.getName() + ChatColor.GRAY + ") Nuevo castigo: " + this.name);

@@ -39,7 +39,7 @@ public class SetPunishment_cmd extends ANRSubCommand {
     }
 
     short ppos = 0;
-    World world = Core.instance().getServer().getWorld(args[0]);
+    World world = Core.getInstance().getServer().getWorld(args[0]);
 
     if(world != null){ // Si el mundo está en el primer elemento
       if(args.length > 1){
@@ -60,7 +60,7 @@ public class SetPunishment_cmd extends ANRSubCommand {
     if(ANRMessages.notAValidWorld(world.getName(), sender)) return true;
     if(!PunishmentManager.getInstance().isAPunishment(args[ppos], sender)) return true;
 
-    Punishment punishment = PunishmentManager.getPunishmentByName(args[ppos]);
+    Punishment punishment = PunishmentManager.getInstance().getPunishmentByName(args[ppos]);
     if(punishment.setUp(world,sender, Arrays.copyOfRange(args,1 + ppos,args.length))){
       PunishmentManager.getInstance().setPunishment(world,punishment);
     }
@@ -71,7 +71,7 @@ public class SetPunishment_cmd extends ANRSubCommand {
   public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] args) {
     List<String> result = new ArrayList<>(15);
 
-    if(commandSender instanceof Player) { //Si es un player
+    if(commandSender instanceof Player) {
       if(args.length == 2){
         TabCompleteUtils.addTabPunishmentsToResult(args,result,1);
       } else if (args.length == 3 && WorldRepo.getInstance().isANetherWorldName(args[1])) {
