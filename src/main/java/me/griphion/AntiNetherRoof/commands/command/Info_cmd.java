@@ -16,7 +16,9 @@ import java.util.List;
 
 public class Info_cmd extends ANRSubCommand {
   public Info_cmd() {
-    super("info [World]", "Muestra información del mundo actual o del mundo indicado.", "antinetherroof.command.info");
+    super("info [World]",
+            "Muestra información del mundo actual o del mundo indicado.",
+            "antinetherroof.command.info");
   }
 
   @Override

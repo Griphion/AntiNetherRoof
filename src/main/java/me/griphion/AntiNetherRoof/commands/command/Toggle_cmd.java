@@ -14,7 +14,9 @@ import java.util.List;
 
 public class Toggle_cmd extends ANRSubCommand {
   public Toggle_cmd() {
-    super("toggle [World]", "Activa/Desactiva el castigo del mundo actual o del mundo indicado.", "antinetherroof.command.toggle");
+    super("toggle [World]",
+            "Activa/Desactiva el castigo del mundo actual o del mundo indicado.",
+            "antinetherroof.command.toggle");
   }
 
   @Override

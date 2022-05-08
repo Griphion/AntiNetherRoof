@@ -13,7 +13,9 @@ import java.util.List;
 
 public class Punishment_cmd extends ANRSubCommand {
   public Punishment_cmd() {
-    super("punishment [Punishment]", "Te muestra los castigos disponibles o lo que hace el castigo (Si se indica).", "antinetherroof.command.punishment");
+    super("punishment [Punishment]",
+            "Te muestra los castigos disponibles o lo que hace el castigo (Si se indica).",
+            "antinetherroof.command.punishment");
   }
 
   @Override

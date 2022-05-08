@@ -10,7 +10,9 @@ import org.bukkit.command.CommandSender;
 
 public class Reload_cmd extends ANRSubCommand {
   public Reload_cmd() {
-    super("reload", "Recarga el archivo config y agrega todos los mundos (En caso de que falte alguno).", "antinetherroof.command.reload");
+    super("reload",
+            "Recarga el archivo config y agrega todos los mundos (En caso de que falte alguno).",
+            "antinetherroof.command.reload");
   }
 
   @Override

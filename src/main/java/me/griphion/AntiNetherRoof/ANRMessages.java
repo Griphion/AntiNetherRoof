@@ -18,10 +18,9 @@ public enum ANRMessages {
   NO_PERMISSION_PLACE_BLOCK("&cNo tienes permiso para poner bloques aquí!"),
   NO_PERMISSION_BREAK_BLOCK("&cNo tienes permiso para romper bloques aquí!"),
   NO_PERMISSION_PLACE_ENTITY("&cNo tienes permiso para poner entidades/líquidos aquí!"),
-  NO_PERMISSION_USE("&cNo tienes permiso para usar aquí!"),
+  NO_PERMISSION_USE("&cNo tienes permiso para usar eso aquí!"),
   NEED_WORLD_NAME("&cNecesitas escribir el nombre del mundo!"),
   NEED_PUNISHMENT_NAME("&cNecesitas escribir el nombre del castigo!");
-
 
   private final String message;
 

@@ -8,7 +8,9 @@ import org.bukkit.command.CommandSender;
 
 public class Help_cmd extends ANRSubCommand {
   public Help_cmd() {
-    super("help", "Muestra los comandos disponibles.", "antinetherroof.command.help");
+    super("help",
+            "Muestra los comandos disponibles.",
+            "antinetherroof.command.help");
   }
 
   private final String helpUsagePrefix = ChatColor.DARK_AQUA + "/anr ";
