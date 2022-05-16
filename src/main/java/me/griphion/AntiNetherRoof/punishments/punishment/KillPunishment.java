@@ -5,9 +5,9 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
-public class Kill_Punishment extends Punishment {
+public class KillPunishment extends Punishment {
 
-  public Kill_Punishment() {
+  public KillPunishment() {
     super("kill", "Mata al jugador.");
   }
 

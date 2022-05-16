@@ -3,9 +3,9 @@ package me.griphion.AntiNetherRoof.punishments.punishment;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
-public class Spawn_Punishment extends Punishment {
+public class SpawnPunishment extends Punishment {
 
-  public Spawn_Punishment() {
+  public SpawnPunishment() {
     super("spawn", "Envía al jugador al spawn natural (Vanilla) del Nether.");
   }
 

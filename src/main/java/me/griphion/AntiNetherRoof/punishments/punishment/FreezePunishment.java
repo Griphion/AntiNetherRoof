@@ -11,13 +11,13 @@ import org.bukkit.scheduler.BukkitTask;
 
 import java.util.*;
 
-public class Freeze_Punishment extends Punishment {
+public class FreezePunishment extends Punishment {
 
   protected Set<Player> players = new HashSet<>(3);
   protected Iterator<Player> playersIterator;
   protected BukkitTask task;
 
-  public Freeze_Punishment() {
+  public FreezePunishment() {
     super("freeze", "Congela al jugador en el lugar.");
   }
 

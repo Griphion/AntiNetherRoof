@@ -6,8 +6,8 @@ import me.griphion.AntiNetherRoof.commands.ANRSubCommand;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.CommandSender;
 
-public class Help_cmd extends ANRSubCommand {
-  public Help_cmd() {
+public class HelpCmd extends ANRSubCommand {
+  public HelpCmd() {
     super("help",
             "Muestra los comandos disponibles.",
             "antinetherroof.command.help");

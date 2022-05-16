@@ -20,8 +20,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class SetPunishment_cmd extends ANRSubCommand {
-  public SetPunishment_cmd() {
+public class SetPunishmentCmd extends ANRSubCommand {
+  public SetPunishmentCmd() {
     super("setpunishment [World] <Punishment> [Param]",
             "Asigna el castigo para el mundo actual o para el mundo indicado.",
             "antinetherroof.command.setpunishment");

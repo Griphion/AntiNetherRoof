@@ -11,8 +11,8 @@ import org.bukkit.command.CommandSender;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Punishment_cmd extends ANRSubCommand {
-  public Punishment_cmd() {
+public class PunishmentCmd extends ANRSubCommand {
+  public PunishmentCmd() {
     super("punishment [Punishment]",
             "Te muestra los castigos disponibles o lo que hace el castigo (Si se indica).",
             "antinetherroof.command.punishment");

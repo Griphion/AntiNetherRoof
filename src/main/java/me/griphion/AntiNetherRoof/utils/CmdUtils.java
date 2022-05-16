@@ -6,9 +6,9 @@ import org.bukkit.entity.Player;
 
 public class CmdUtils {
 
-  // Te devulelve el nombre del mundo o vacío en caso de fallar
+  // Devulelve el nombre del mundo o vacío en caso de fallar
   // Nota: Solo funciona si el nombre del mundo es el último elemento del args a la derecha
-  public static String consoleOrPlayer_GetWorldName(CommandSender sender, String[] args, int worldNamePosition) {
+  public static String consoleOrPlayerGetWorldName(CommandSender sender, String[] args, int worldNamePosition) {
     String worldName;
     if(args.length <= worldNamePosition){
       if(sender instanceof Player){

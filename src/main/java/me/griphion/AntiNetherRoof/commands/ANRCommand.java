@@ -18,13 +18,13 @@ public class ANRCommand implements CommandExecutor, TabCompleter {
     return INSTANCE;
   }
   private ANRCommand() {
-    subCommands.put("help", new Help_cmd());
-    subCommands.put("info", new Info_cmd());
-    subCommands.put("punishment", new Punishment_cmd());
-    subCommands.put("reload", new Reload_cmd());
-    subCommands.put("setpunishment", new SetPunishment_cmd());
-    subCommands.put("toggle", new Toggle_cmd());
-    subCommands.put("worlds", new Worlds_cmd());
+    subCommands.put("help", new HelpCmd());
+    subCommands.put("info", new InfoCmd());
+    subCommands.put("punishment", new PunishmentCmd());
+    subCommands.put("reload", new ReloadCmd());
+    subCommands.put("setpunishment", new SetPunishmentCmd());
+    subCommands.put("toggle", new ToggleCmd());
+    subCommands.put("worlds", new WorldsCmd());
   }
 
   @Override

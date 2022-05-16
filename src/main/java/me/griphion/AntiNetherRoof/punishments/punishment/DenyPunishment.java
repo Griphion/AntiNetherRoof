@@ -5,9 +5,9 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
-public class Deny_Punishment extends Punishment {
+public class DenyPunishment extends Punishment {
 
-  public Deny_Punishment() {
+  public DenyPunishment() {
     super("deny", "Teletransporta al jugador dos bloques por debajo del límite");
   }
 

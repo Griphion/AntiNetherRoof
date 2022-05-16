@@ -9,8 +9,8 @@ import me.griphion.AntiNetherRoof.repos.WorldRepo;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.CommandSender;
 
-public class Reload_cmd extends ANRSubCommand {
-  public Reload_cmd() {
+public class ReloadCmd extends ANRSubCommand {
+  public ReloadCmd() {
     super("reload",
             "Recarga el archivo config y agrega todos los mundos (En caso de que falte alguno).",
             "antinetherroof.command.reload");

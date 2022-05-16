@@ -1,10 +1,10 @@
 package me.griphion.AntiNetherRoof;
 
 import me.griphion.AntiNetherRoof.commands.ANRCommand;
-import me.griphion.AntiNetherRoof.listeners.PlayerBuild_Listener;
-import me.griphion.AntiNetherRoof.listeners.PlayerMove_Listener;
-import me.griphion.AntiNetherRoof.listeners.PlayerPlaceEntity_Listener;
-import me.griphion.AntiNetherRoof.listeners.PlayerUseItem_Listener;
+import me.griphion.AntiNetherRoof.listeners.PlayerBuildListener;
+import me.griphion.AntiNetherRoof.listeners.PlayerMoveListener;
+import me.griphion.AntiNetherRoof.listeners.PlayerPlaceEntityListener;
+import me.griphion.AntiNetherRoof.listeners.PlayerUseItemListener;
 import me.griphion.AntiNetherRoof.punishments.PunishmentManager;
 import me.griphion.AntiNetherRoof.repos.WorldRepo;
 import org.bukkit.Bukkit;
@@ -28,10 +28,10 @@ public class Core extends JavaPlugin {
         PunishmentManager.getInstance().loadPunishments();
 
         // Listeners
-        getServer().getPluginManager().registerEvents(new PlayerMove_Listener(), INSTANCE);
-        getServer().getPluginManager().registerEvents(new PlayerPlaceEntity_Listener(), INSTANCE);
-        getServer().getPluginManager().registerEvents(new PlayerBuild_Listener(), INSTANCE);
-        getServer().getPluginManager().registerEvents(new PlayerUseItem_Listener(), INSTANCE);
+        getServer().getPluginManager().registerEvents(new PlayerMoveListener(), INSTANCE);
+        getServer().getPluginManager().registerEvents(new PlayerPlaceEntityListener(), INSTANCE);
+        getServer().getPluginManager().registerEvents(new PlayerBuildListener(), INSTANCE);
+        getServer().getPluginManager().registerEvents(new PlayerUseItemListener(), INSTANCE);
         // ---------------
 
         Objects.requireNonNull(getCommand("antinetherroof")).setExecutor(ANRCommand.instance());

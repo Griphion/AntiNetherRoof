@@ -9,11 +9,11 @@ import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class TP_Punishment extends Punishment {
+public class TPPunishment extends Punishment {
 
   Location tpLocation = null;
 
-  public TP_Punishment() {
+  public TPPunishment() {
     super("tp", "Teletransporta al jugador al lugar designado.");
   }
 

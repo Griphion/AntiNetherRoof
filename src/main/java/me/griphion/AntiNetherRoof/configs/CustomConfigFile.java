@@ -15,20 +15,6 @@ public abstract class CustomConfigFile {
     private FileConfiguration fileConfiguration = null;
     private File configFile = null;
 
-//    public static final Map<directoryEnum,String> directoryPath;
-//    static {
-//        directoryPath = new HashMap<>();
-//        directoryPath.put(directoryEnum.NONE, "");
-//        directoryPath.put(directoryEnum.DRAGON,"/Dragones");
-//        directoryPath.put(directoryEnum.LOOTTABLE,"/LootTables");
-//    }
-//    private final directoryEnum directory;
-//    public enum directoryEnum{
-//        NONE,
-//        DRAGON,
-//        LOOTTABLE
-//    }
-
     public CustomConfigFile(String fileName, String directory){
         this.fileName = fileName;
         this.directory = directory;

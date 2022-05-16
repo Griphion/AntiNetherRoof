@@ -14,8 +14,8 @@ import org.bukkit.command.CommandSender;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Info_cmd extends ANRSubCommand {
-  public Info_cmd() {
+public class InfoCmd extends ANRSubCommand {
+  public InfoCmd() {
     super("info [World]",
             "Muestra información del mundo actual o del mundo indicado.",
             "antinetherroof.command.info");
@@ -27,7 +27,7 @@ public class Info_cmd extends ANRSubCommand {
       return true;
     }
 
-    String worldName = CmdUtils.consoleOrPlayer_GetWorldName(sender, args,0);
+    String worldName = CmdUtils.consoleOrPlayerGetWorldName(sender, args,0);
     if (worldName.isEmpty()) return true;
 
     sender.sendMessage(ANRMessages.SEPARATOR.getMessage());

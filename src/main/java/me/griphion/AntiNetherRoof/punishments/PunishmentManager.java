@@ -24,20 +24,20 @@ public class PunishmentManager {
     private final HashMap<World,Punishment> worldPunishment = new HashMap<>(10);
 
     public Punishment getPunishmentByName(final String punishmentName){
-        if(punishmentName == null) return new Deny_Punishment();
+        if(punishmentName == null) return new DenyPunishment();
         switch(punishmentName){
             case "deny":
-                return new Deny_Punishment();
+                return new DenyPunishment();
             case "freeze":
-                return new Freeze_Punishment();
+                return new FreezePunishment();
             case "tp":
-                return new TP_Punishment();
+                return new TPPunishment();
             case "spawn":
-                return new Spawn_Punishment();
+                return new SpawnPunishment();
             case "kill":
-                return new Kill_Punishment();
+                return new KillPunishment();
         }
-        return new Deny_Punishment();
+        return new DenyPunishment();
     }
 
     public List<String> getAvailablePunishments(){

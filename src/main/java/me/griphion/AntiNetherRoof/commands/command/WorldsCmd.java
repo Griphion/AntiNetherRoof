@@ -7,8 +7,8 @@ import me.griphion.AntiNetherRoof.utils.StringUtils;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.CommandSender;
 
-public class Worlds_cmd extends ANRSubCommand {
-  public Worlds_cmd() {
+public class WorldsCmd extends ANRSubCommand {
+  public WorldsCmd() {
     super("worlds",
             "Muestra los mundos disponibles.",
             "antinetherroof.command.worlds");

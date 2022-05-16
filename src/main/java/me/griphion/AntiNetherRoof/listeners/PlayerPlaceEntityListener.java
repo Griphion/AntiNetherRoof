@@ -12,7 +12,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 
-public class PlayerPlaceEntity_Listener implements Listener {
+public class PlayerPlaceEntityListener implements Listener {
 
   @EventHandler(ignoreCancelled = true)
   public static void onPlaceEntity(final PlayerInteractEvent event) {

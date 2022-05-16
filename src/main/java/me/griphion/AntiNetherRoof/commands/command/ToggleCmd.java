@@ -12,8 +12,8 @@ import org.bukkit.command.CommandSender;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Toggle_cmd extends ANRSubCommand {
-  public Toggle_cmd() {
+public class ToggleCmd extends ANRSubCommand {
+  public ToggleCmd() {
     super("toggle [World]",
             "Activa/Desactiva el castigo del mundo actual o del mundo indicado.",
             "antinetherroof.command.toggle");
@@ -25,7 +25,7 @@ public class Toggle_cmd extends ANRSubCommand {
       return true;
     }
 
-    String worldName = CmdUtils.consoleOrPlayer_GetWorldName(sender, args,0);
+    String worldName = CmdUtils.consoleOrPlayerGetWorldName(sender, args,0);
     if (worldName.isEmpty()) return true;
     if(WorldsConfig.getInstance().isWorldEnabled(worldName)){
       sender.sendMessage(ANRMessages.PLUGIN_PREFIX_SHORT.getMessage() + ChatColor.GRAY + "Castigo " + ChatColor.DARK_RED + "DESACTIVADO" + ChatColor.GRAY + " con éxito! En el mundo: " + ChatColor.GOLD + worldName);

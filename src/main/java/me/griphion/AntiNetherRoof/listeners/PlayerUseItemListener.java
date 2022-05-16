@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 
-public class PlayerUseItem_Listener implements Listener {
+public class PlayerUseItemListener implements Listener {
 
   @EventHandler(ignoreCancelled = true)
   public static void onItemUse(final PlayerInteractEvent event) {

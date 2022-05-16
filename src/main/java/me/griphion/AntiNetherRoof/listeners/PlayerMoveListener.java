@@ -18,7 +18,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class PlayerMove_Listener implements Listener {
+public class PlayerMoveListener implements Listener {
 
     private final Set<Player> antiSpamList = new HashSet<>(3);
 

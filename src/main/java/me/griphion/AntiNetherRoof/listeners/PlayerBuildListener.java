@@ -12,7 +12,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 
-public class PlayerBuild_Listener implements Listener {
+public class PlayerBuildListener implements Listener {
 
   @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGH)
   public static void onBreakBlock(final BlockBreakEvent event) {
