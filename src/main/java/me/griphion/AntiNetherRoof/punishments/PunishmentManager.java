@@ -25,19 +25,13 @@ public class PunishmentManager {
 
     public Punishment getPunishmentByName(final String punishmentName){
         if(punishmentName == null) return new DenyPunishment();
-        switch(punishmentName){
-            case "deny":
-                return new DenyPunishment();
-            case "freeze":
-                return new FreezePunishment();
-            case "tp":
-                return new TPPunishment();
-            case "spawn":
-                return new SpawnPunishment();
-            case "kill":
-                return new KillPunishment();
-        }
-        return new DenyPunishment();
+        return switch (punishmentName) {
+            case "freeze" -> new FreezePunishment();
+            case "tp" -> new TPPunishment();
+            case "spawn" -> new SpawnPunishment();
+            case "kill" -> new KillPunishment();
+            default -> new DenyPunishment();
+        };
     }
 
     public List<String> getAvailablePunishments(){

@@ -11,8 +11,7 @@ public class CmdUtils {
   public static String consoleOrPlayerGetWorldName(CommandSender sender, String[] args, int worldNamePosition) {
     String worldName;
     if(args.length <= worldNamePosition){
-      if(sender instanceof Player){
-        Player player = (Player) sender;
+      if(sender instanceof Player player){
         worldName = player.getWorld().getName();
       }else {
         sender.sendMessage(ANRMessages.PLUGIN_PREFIX_SHORT.getMessage() + ANRMessages.NEED_WORLD_NAME.getMessage());

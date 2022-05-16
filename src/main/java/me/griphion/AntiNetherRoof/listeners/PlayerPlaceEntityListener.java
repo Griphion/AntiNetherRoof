@@ -44,15 +44,14 @@ public class PlayerPlaceEntityListener implements Listener {
   }
 
   private static boolean isOther(Material material) {
-    switch (material) {
-      case LAVA:
-      case WATER:
-      case END_CRYSTAL:
-      case ARMOR_STAND:
-        return true;
-      default:
-        return false;
-    }
+    return switch (material) {
+      case LAVA,
+              WATER,
+              END_CRYSTAL,
+              ARMOR_STAND
+              -> true;
+      default -> false;
+    };
   }
 
   private static boolean isSpawnEgg(Material material) {

@@ -7,6 +7,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
@@ -28,7 +29,7 @@ public class ANRCommand implements CommandExecutor, TabCompleter {
   }
 
   @Override
-  public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
+  public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String s, @NotNull String[] args) {
     if(cmd.getName().equalsIgnoreCase("antinetherroof") || cmd.getName().equalsIgnoreCase("anr")) {
       if (args.length == 0) {
         sender.sendMessage(ANRMessages.PLUGIN_PREFIX.getMessage() + ChatColor.WHITE + "Designed by " + ChatColor.RED + "Griphion");
@@ -45,7 +46,7 @@ public class ANRCommand implements CommandExecutor, TabCompleter {
   }
 
   @Override
-  public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] args) {
+  public List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
     List<String> result = new ArrayList<>(15);
 
     if(args.length == 1){

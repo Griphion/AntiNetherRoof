@@ -47,66 +47,63 @@ public class PlayerUseItemListener implements Listener {
   }
 
   public static boolean isOther(Material material) {
-    switch (material) {
-      case ENDER_PEARL:
-      case ENDER_EYE:
-      case MILK_BUCKET:
-      case SPLASH_POTION:
-      case LINGERING_POTION:
-      case POTION:
-      case SHIELD:
-      case FIREWORK_ROCKET:
-      case EXPERIENCE_BOTTLE:
-      case LEAD:
-      case BONE_MEAL:
-        return true;
-      default:
-        return false;
-    }
+    return switch (material) {
+      case ENDER_PEARL,
+              ENDER_EYE,
+              MILK_BUCKET,
+              SPLASH_POTION,
+              LINGERING_POTION,
+              POTION,
+              SHIELD,
+              FIREWORK_ROCKET,
+              EXPERIENCE_BOTTLE,
+              LEAD,
+              BONE_MEAL
+              -> true;
+      default -> false;
+    };
   }
 
   public static boolean isTool(Material material) {
-    switch (material) {
-      case FISHING_ROD:
-      case WOODEN_HOE:
-      case STONE_HOE:
-      case IRON_HOE:
-      case GOLDEN_HOE:
-      case DIAMOND_HOE:
-      case NETHERITE_HOE:
-      case WOODEN_AXE:
-      case STONE_AXE:
-      case IRON_AXE:
-      case GOLDEN_AXE:
-      case DIAMOND_AXE:
-      case NETHERITE_AXE:
-      case WOODEN_SHOVEL:
-      case STONE_SHOVEL:
-      case IRON_SHOVEL:
-      case GOLDEN_SHOVEL:
-      case DIAMOND_SHOVEL:
-      case NETHERITE_SHOVEL:
-      case SHEARS:
-        return true;
-      default:
-        return false;
-    }
+    return switch (material) {
+      case FISHING_ROD,
+              WOODEN_HOE,
+              STONE_HOE,
+              IRON_HOE,
+              GOLDEN_HOE,
+              DIAMOND_HOE,
+              NETHERITE_HOE,
+              WOODEN_AXE,
+              STONE_AXE,
+              IRON_AXE,
+              GOLDEN_AXE,
+              DIAMOND_AXE,
+              NETHERITE_AXE,
+              WOODEN_SHOVEL,
+              STONE_SHOVEL,
+              IRON_SHOVEL,
+              GOLDEN_SHOVEL,
+              DIAMOND_SHOVEL,
+              NETHERITE_SHOVEL,
+              SHEARS
+              -> true;
+      default -> false;
+    };
   }
 
   public static boolean isWeapon(Material material) {
-    switch (material) {
-      case WOODEN_SWORD:
-      case STONE_SWORD:
-      case IRON_SWORD:
-      case GOLDEN_SWORD:
-      case DIAMOND_SWORD:
-      case NETHERITE_SWORD:
-      case BOW:
-      case CROSSBOW:
-      case TRIDENT:
-        return true;
-      default:
-        return false;
-    }
+    return switch (material) {
+      case WOODEN_SWORD,
+              STONE_SWORD,
+              IRON_SWORD,
+              GOLDEN_SWORD,
+              DIAMOND_SWORD,
+              NETHERITE_SWORD,
+              BOW,
+              CROSSBOW,
+              TRIDENT
+              ->true;
+      default -> false;
+    };
   }
 }

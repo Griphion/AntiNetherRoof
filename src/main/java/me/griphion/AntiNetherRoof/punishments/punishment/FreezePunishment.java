@@ -52,14 +52,14 @@ public class FreezePunishment extends Punishment {
 
   protected void applyEffects(Player player){
     player.addPotionEffects(effects);
-    //Agregar efecto de congelado (Freeze)
-    // Nota: Hasta el momento solo se puede lograr usando NMS
+    player.setFreezeTicks(240); //140 ticks de base + (5 segundos * 20 ticks/segundo)
   }
 
   protected void removeEffects(Player player) {
     for(PotionEffect effect : effects) {
       player.removePotionEffect(effect.getType());
     }
+    player.setFreezeTicks(0);
   }
 
   private void startTaskTimer(){
