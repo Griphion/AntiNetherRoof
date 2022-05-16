@@ -1,6 +1,6 @@
 name: AntiNetherRoof
 version: '1.0'
-api-version: '1.17'
+api-version: '1.18'
 description: Prevent players going to the nether roof
 author: Griphion
 main: me.griphion.AntiNetherRoof.Core
